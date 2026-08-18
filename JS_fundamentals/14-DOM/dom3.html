@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+               <ul class="languages">
+                            <li>C++</li>
+               </ul>
+    
+</body>
+         <script>
+                // ADDING li USING FUNCTION
+                
+                 function addlang(lang){
+                   let languages = document.querySelector(".languages")
+                   let newli = document.createElement("li")
+                   newli.innerHTML=`${lang}`
+                   languages.appendChild(newli)
+                  
+                 }
+                 addlang("JavaScript")
+                 addlang("Python")
+
+                 // 2nd approach (Optimized)
+
+                 function optimized(lang){
+                   let languages = document.querySelector(".languages")
+                   languages.appendChild(document.createTextNode(lang))
+                 }
+                 addlang("PHP")
+                 addlang("JAVA")
+
+                 // Edit
+              let languageOne =  document.querySelector('li:nth-child(2)')
+              // languageOne.innerHTML="Ruby" // not a good approach
+              let newli = document.createElement("li")
+              newli.textContent = "C"
+              languageOne.replaceWith(newli)
+              // 3rd Approach
+              let languagefifth = document.querySelector("li:nth-child(5)")
+              languagefifth.outerHTML="<li>JavaScript</li>"
+              // Delete
+              let languagetwo = document.querySelector("li:nth-child(2)")
+              console.log(languagetwo)
+              languagetwo.remove()
+         </script>
+
+</html>
