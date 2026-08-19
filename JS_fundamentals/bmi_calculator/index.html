@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color: #f2f2f2; margin: 0; padding: 40px;">
+
+    <div style="max-width: 400px; margin: auto; background-color: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+
+        <h1 style="text-align: center; color: #333;">BMI Calculator</h1>
+
+        <form id="form">
+            <label for="height" style="display: block; margin-bottom: 8px; color: #555;">
+                Height (cm)
+            </label>
+
+            <input
+                type="number"
+                id="height"
+                placeholder="Enter your height"
+                style="width: 100%; padding: 10px; box-sizing: border-box; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"
+            >
+
+            <label for="weight" style="display: block; margin-bottom: 8px; color: #555;">
+                Weight (kg)
+            </label>
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="Enter your weight"
+                style="width: 100%; padding: 10px; box-sizing: border-box; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;"
+            >
+
+            <button
+                type="submit"
+                id="calculate"
+                style="width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;"
+            >
+                Calculate BMI
+            </button>
+        </form>
+
+        <h2 style="color: #333; margin-top: 25px;">Result</h2>
+
+        <p
+            id="result"
+            style="background-color: #f8f9fa; padding: 12px; border-radius: 5px; color: #333;"
+        >
+            Your BMI will appear here.
+        </p>
+
+        <h3 style="color: #333;">BMI Ranges</h3>
+
+        <p style="color: #3498db;">Underweight: Below 18.5</p>
+        <p style="color: #27ae60;">Normal weight: 18.5 – 24.9</p>
+        <p style="color: #f39c12;">Overweight: 25 – 29.9</p>
+        <p style="color: #e74c3c;">Obesity: 30 or above</p>
+
+    </div>
+
+ <script>
+    let height = document.querySelector("#height");
+    let weight = document.querySelector("#weight");
+    let result = document.querySelector("#result");
+    let form = document.querySelector("#form");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let heightValue = parseFloat(height.value);
+        let weightValue = parseFloat(weight.value);
+
+        if (isNaN(heightValue) || heightValue <= 0) {
+            result.innerHTML = "Height is invalid";
+        }
+        else if (isNaN(weightValue) || weightValue <= 0) {
+            result.innerHTML = "Weight is invalid";
+        }
+        else {
+            let bmi = weightValue / ((heightValue / 100) ** 2);
+
+            result.innerHTML = `Your BMI is ${bmi.toFixed(2)}`;
+        }
+    });
+</script>
+
+</body>
+</html>
