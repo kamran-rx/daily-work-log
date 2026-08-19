@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background color changer</title>
+</head>
+<body style="display: flex;justify-content: space-around; gap: 10px;">
+           <button id="start" style="width: 120px; height: 80px; padding: 12px; border-radius: 3px;">Start</button>
+           <button id="stop" style="width: 120px; height: 80px; padding: 12px;border-radius: 3px;">Stop</button>    
+</body>
+<script>
+            let start = document.querySelector("#start")
+            let stop = document.querySelector("#stop")
+            let body =  document.querySelector("body")
+
+            let interval;
+           start.addEventListener("click",function(){
+               if(interval) return;
+             interval = setInterval(() => {
+                       let hex = "0123456789ABCDEF";
+             let color = "#";
+             
+            
+             for(let i=0 ; i<6 ; i++){
+                 color+= hex[ Math.floor(Math.random()*16)]
+             }
+              body.style.backgroundColor=color;
+
+       }, 2000);                  
+           })
+
+         stop.addEventListener("click",function(){
+                     clearInterval(interval)
+                     interval=null
+         })   
+      
+      
+
+      
+          
+</script>
+
+</html>
