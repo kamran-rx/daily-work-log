@@ -55,7 +55,7 @@
   // imp : when deleteCount is missing it deletes everything from the start u give
 
         // 6. slice() 
-        // syntax :  slice(start,end(optional+exlcuded))
+        // syntax :  slice(start,end(optional + exlcuded))
         // is an array method used to copy a portion of an array and return it as a new array.
 
 //      The most important thing to remember:

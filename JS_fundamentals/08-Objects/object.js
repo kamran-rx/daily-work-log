@@ -120,7 +120,7 @@ const user_one = {
     country: "Pakistan"
   }
 };
-const {   address:{city ,country}     } =user_one;
+const {   address:{city ,country}     } = user_one;
 
 console.log( city)
 console.log(country)
